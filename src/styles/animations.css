@@ -1,0 +1,73 @@
+@keyframes float-soft {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes sparkle-fade {
+  0% { opacity: 0; transform: scale(0.5) translateY(4px); }
+  40% { opacity: 1; transform: scale(1) translateY(-2px); }
+  100% { opacity: 0; transform: scale(0.7) translateY(-8px); }
+}
+
+@keyframes particle-rise {
+  0% { opacity: 0; transform: translateY(4px) scale(0.6); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px) scale(1.1); }
+}
+
+.app-ambient-gradient {
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(111, 255, 233, 0.12), transparent 55%),
+    radial-gradient(circle at 90% 20%, rgba(184, 169, 255, 0.18), transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(244, 213, 141, 0.08), transparent 65%);
+  opacity: 0.9;
+  filter: blur(20px);
+}
+
+.app-stars-layer {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.36) 0, transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.26) 0, transparent 55%),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.22) 0, transparent 55%);
+  opacity: 0.55;
+}
+
+.app-fireflies-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #f4d58d, transparent 70%);
+  box-shadow: 0 0 10px rgba(244, 213, 141, 0.9);
+  animation: sparkle-fade 4s ease-in-out infinite;
+}
+
+.garden-floating-cta {
+  position: sticky;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}

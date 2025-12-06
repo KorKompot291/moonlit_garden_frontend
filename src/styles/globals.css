@@ -1,0 +1,105 @@
+:root {
+  --bg-deep-void: #0a0e1f;
+  --bg-twilight-navy: #1a1f3a;
+  --bg-misty-violet: #2d2645;
+  --accent-lunar-gold: #f4d58d;
+  --accent-mystic-teal: #6fffe9;
+  --accent-lilac-glow: #b8a9ff;
+  --accent-crystal-aqua: #80e8dd;
+  --organic-moss-deep: #1f4037;
+  --organic-mushroom-cream: #ffe8d6;
+  --organic-petal-blush: #e8b4f8;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --card-bg: rgba(18, 24, 48, 0.85);
+  --card-border: rgba(184, 169, 255, 0.4);
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+  --blur-strong: blur(18px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Quicksand', sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(circle at top, #2d2645 0, #050714 40%, #020308 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  padding: 12px 12px 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    max-width: 640px;
+    padding: 16px 20px 20px;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app-background-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-content-layer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.app-garden-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+}
