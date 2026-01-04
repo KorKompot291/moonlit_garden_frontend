@@ -7,14 +7,10 @@ import LunarDashboardPage from './pages/LunarDashboardPage';
 import SettingsPage from './pages/SettingsPage';
 import OnboardingPage from './pages/OnboardingPage';
 import AppShell from './components/layout/AppShell';
-import { setTokenFromStorage } from './api/client';
 
 const App: React.FC = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    setTokenFromStorage();
-  }, []);
 
   return (
     <Routes>
