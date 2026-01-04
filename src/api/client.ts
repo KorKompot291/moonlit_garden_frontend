@@ -68,3 +68,16 @@ export async function completeHabitToday(habitId: number) {
     handleError(error);
   }
 }
+
+// --------------------------------------------------
+// ARTIFACTS (ВОЗВРАЩАЕМ, ЧТО ИСПОЛЬЗУЕТСЯ)
+// --------------------------------------------------
+
+export async function fetchArtifacts() {
+  try {
+    const res = await apiClient.get("/artifacts");
+    return res.data;
+  } catch (error) {
+    handleError(error);
+  }
+}
