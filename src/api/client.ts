@@ -81,3 +81,15 @@ export async function fetchArtifacts() {
     handleError(error);
   }
 }
+// --------------------------------------------------
+// LUNAR
+// --------------------------------------------------
+
+export async function fetchMoonPhase() {
+  try {
+    const res = await apiClient.get("/lunar/phase");
+    return res.data;
+  } catch (error) {
+    handleError(error);
+  }
+}
