@@ -2,7 +2,7 @@ import axios from "axios";
 import type { GardenState } from "../types/garden";
 
 // --------------------------------------------------
-// base URL (ВОЗВРАЩАЕМ СТАРУЮ ЛОГИКУ)
+// base URL
 // --------------------------------------------------
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
@@ -34,22 +34,9 @@ function handleError(error: unknown): never {
   throw error;
 }
 
-// --------------------------------------------------
-// GARDEN (НОВОЕ)
-// --------------------------------------------------
-
-export async function getGardenState(): Promise<GardenState> {
-  try {
-    const res = await apiClient.get<GardenState>("/garden/state");
-    return res.data;
-  } catch (error) {
-    handleError(error);
-  }
-}
-
-// --------------------------------------------------
-// HABITS (СТАРОЕ, НЕ ТРОГАЕМ)
-// --------------------------------------------------
+// ==================================================
+// HABITS
+// ==================================================
 
 export async function fetchHabits() {
   try {
@@ -69,9 +56,22 @@ export async function completeHabitToday(habitId: number) {
   }
 }
 
-// --------------------------------------------------
-// ARTIFACTS (ВОЗВРАЩАЕМ, ЧТО ИСПОЛЬЗУЕТСЯ)
-// --------------------------------------------------
+// ==================================================
+// GARDEN
+// ==================================================
+
+export async function getGardenState(): Promise<GardenState> {
+  try {
+    const res = await apiClient.get<GardenState>("/garden/state");
+    return res.data;
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// ==================================================
+// ARTIFACTS
+// ==================================================
 
 export async function fetchArtifacts() {
   try {
@@ -81,13 +81,27 @@ export async function fetchArtifacts() {
     handleError(error);
   }
 }
-// --------------------------------------------------
+
+// ==================================================
 // LUNAR
-// --------------------------------------------------
+// ==================================================
 
 export async function fetchMoonPhase() {
   try {
     const res = await apiClient.get("/lunar/phase");
+    return res.data;
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// ==================================================
+// SETTINGS
+// ==================================================
+
+export async function fetchSettings() {
+  try {
+    const res = await apiClient.get("/settings");
     return res.data;
   } catch (error) {
     handleError(error);
